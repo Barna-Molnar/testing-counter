@@ -2,39 +2,44 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Counter from '../Counter.jsx';
 
 
+// it is going to run before Each test 
+beforeEach(() => {
+    return render(<Counter />);
+})
+
 describe('Testing Counter', () => {
     test('renders h1 with "My counter" text', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const headerElement = screen.getByText(/my counter/i);
         expect(headerElement).toBeInTheDocument();
         expect(headerElement).toHaveTextContent('My Counter')
     });
     test('Counter initially starts with text of 0', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const counterElement = screen.getByTestId('counter');
         expect(counterElement.textContent).toBe('0');
 
     });
     test('Input contains initial value of 1', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const inputElement = screen.getByTestId('input');
         expect(inputElement.value).toBe('1');
 
     });
     test('Add Button renders with "+"', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const addBtn = screen.getByTestId('add-btn');
         expect(addBtn.textContent).toBe('+');
 
     });
     test('Subtract Button renders with "+"', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const subtractBtn = screen.getByTestId('subtract-btn');
         expect(subtractBtn.textContent).toBe('-');
 
     });
     test('Changing value of input works correctly', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const inputElement = screen.getByTestId('input');
         fireEvent.change(inputElement, { target: { value: 3 } })
 
@@ -42,7 +47,7 @@ describe('Testing Counter', () => {
 
     });
     test('Clicking on add button adds 1 to a counter', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const addBrnEl = screen.getByTestId('add-btn');
         const counterElement = screen.getByTestId('counter');
         expect(counterElement.textContent).toBe('0');
@@ -53,7 +58,7 @@ describe('Testing Counter', () => {
 
     });
     test('Clicking on add button subtract 1 to a counter', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const subtractBrnEl = screen.getByTestId('subtract-btn');
         const counterElement = screen.getByTestId('counter');
         expect(counterElement.textContent).toBe('0');
@@ -64,7 +69,7 @@ describe('Testing Counter', () => {
 
     });
     test('Changing inputValue and Clicking on add button and adds to a counter', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const btnElement = screen.getByTestId('add-btn');
         const counterElement = screen.getByTestId('counter');
         const inputElement = screen.getByTestId('input');
@@ -78,7 +83,7 @@ describe('Testing Counter', () => {
 
     });
     test('Changing inputValue and Clicking on subtract button and subtract from counter', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const subtractBtnElement = screen.getByTestId('subtract-btn');
         const counterElement = screen.getByTestId('counter');
         const inputElement = screen.getByTestId('input');
@@ -97,7 +102,7 @@ describe('Testing Counter', () => {
     });
 
     test('counter contains correct classname and value', () => {
-        render(<Counter />);
+        // render(<Counter />);
         const subtractBtnElement = screen.getByTestId('subtract-btn');
         const addBtnElement = screen.getByTestId('add-btn');
         const counterElement = screen.getByTestId('counter');
